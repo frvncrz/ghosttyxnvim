@@ -16,6 +16,10 @@ vim.opt.guicursor = "n-v-c:block,i-ci-ve:block-blinkwait300-blinkon200-blinkoff1
 
 -- 3. Load Plugins
 require("lazy").setup({
+
+	-- Ash Theme
+	{ "drewxs/ash.nvim" },
+
 	-- Dark Rose Theme
 	{
 		"water-sucks/darkrose.nvim",
@@ -66,12 +70,16 @@ require("lazy").setup({
 
 			-- 2. Custom Buttons (Shortcuts)
 			dashboard.section.buttons.val = {
-				dashboard.button("n", "📝  New File", ":ene <BAR> startinsert <CR>"),
-				dashboard.button("f", "🥽  Find File", ":Telescope find_files <CR>"),
-				dashboard.button("r", "👾  Recent Files", ":Telescope oldfiles <CR>"),
-				dashboard.button("j", "⚡️  My Coding Root", ":cd /Users/justfrvn/Coding <BAR> NvimTreeOpen <CR>"),
-				dashboard.button("s", "🛠️   Settings", ":e $MYVIMRC <CR>"),
-				dashboard.button("q", "🎧  Quit", ":qa <CR>"),
+				dashboard.button("n", "  New File", ":ene <BAR> startinsert <CR>"),
+				dashboard.button("f", "  Find File", ":Telescope find_files <CR>"),
+				dashboard.button("r", "  Recent Files", ":Telescope oldfiles <CR>"),
+				dashboard.button(
+					"j",
+					"  My Coding Root",
+					":cd /Users/justfrvn/Developer/Coding <BAR> NvimTreeOpen <CR>"
+				),
+				dashboard.button("s", "  Settings", ":e $MYVIMRC <CR>"),
+				dashboard.button("q", "❌  Quit", ":qa <CR>"),
 			}
 
 			-- 3. Footer (Random "Startify" style text)
@@ -266,7 +274,7 @@ vim.api.nvim_create_autocmd("ModeChanged", {
 
 -- Transparent Background Fix
 -- 1. Set Spacegray as the default
-vim.cmd([[colorscheme spacegray]])
+vim.cmd([[colorscheme ash]])
 
 -- 2. Refined Transparency Function
 local function make_transparent()
